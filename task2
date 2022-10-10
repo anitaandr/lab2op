@@ -4,7 +4,7 @@
 
 int main(){
 
-pid_t pid1, pid2, pid3, pid4, pid6;
+pid_t pid1, pid2, pid3, pid4, pid6, pid7, pid8;
 printf("Parent[A] of all: %d\n",getpid());
 
 pid1 = fork();
@@ -12,7 +12,9 @@ pid1 = fork();
 if(pid1 == 0){   // Child Process, lets say B.
     printf("Child[B] with id: %d and its Parent id: %d \n", getpid(), getppid());
 }
-if(pid1 == 0){   // Child Process, lets say C.
+else{
+pid7 =fork();
+if(pid7 == 0){   // Child Process, lets say C.
     printf("Child[C] with id: %d and its Parent id: %d \n", getpid(), getppid());
     pid2 = fork();
       if(pid2 == 0){ // A child process. Lets say E.
@@ -27,7 +29,9 @@ else{
         { printf("Child[G] with id: %d and its Parent id: %d \n", getpid(),getppid());}
   }
 }}
-if(pid1 > 0){
+else{
+pid8 = fork();
+if(pid8 == 0){
    pid3 = fork();
   if(pid3 == 0){ // A child process. Lets say D.
-    printf("Child[D] with id: %d and its Parent id: %d \n", getpid(),getppid());}}}
+    printf("Child[D] with id: %d and its Parent id: %d \n", getpid(),getppid());}}}}}
